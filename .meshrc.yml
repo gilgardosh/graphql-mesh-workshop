@@ -28,3 +28,16 @@ transforms:
             type: Query
             field: $1
           useRegExpForFields: true
+
+additionalTypeDefs: |
+  extend type PopulatedPlaceSummary {
+    breweries: [query_breweries_items] @resolveTo(
+      sourceName: "OpenBrewery"
+      sourceTypeName: "Query",
+      sourceFieldName: "breweries",
+      requiredSelectionSet: "{ name }",
+      sourceArgs: {
+        byCity: "{root.name}"
+      }
+    )
+  }
