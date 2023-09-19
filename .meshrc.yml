@@ -4,6 +4,19 @@ sources:
       openapi:
         source: https://wirefreethought.github.io/geodb-cities-api-docs/swagger.json
         endpoint: http://geodb-free-service.wirefreethought.com/v1/
+  - name: OpenBrewery
+    handler:
+      jsonSchema:
+        endpoint: https://api.openbrewerydb.org/v1/
+        operations:
+          - type: Query
+            field: breweries
+            path: breweries?by_city={args.byCity}
+            method: GET
+            responseSample: ./src/open-brewery/breweries-sample.json
+            argTypeMap:
+              byCity:
+                type: string
 
 transforms:
   - rename:
