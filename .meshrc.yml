@@ -4,3 +4,14 @@ sources:
       openapi:
         source: https://wirefreethought.github.io/geodb-cities-api-docs/swagger.json
         endpoint: http://geodb-free-service.wirefreethought.com/v1/
+
+transforms:
+  - rename:
+      renames:
+        - from:
+            type: Query
+            field: (.*)UsingGET
+          to:
+            type: Query
+            field: $1
+          useRegExpForFields: true
