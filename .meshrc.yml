@@ -1,0 +1,6 @@
+sources:
+  - name: GeoDB
+    handler:
+      openapi:
+        source: https://wirefreethought.github.io/geodb-cities-api-docs/swagger.json
+        endpoint: http://geodb-free-service.wirefreethought.com/v1/
