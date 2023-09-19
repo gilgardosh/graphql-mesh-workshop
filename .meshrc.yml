@@ -41,3 +41,7 @@ additionalTypeDefs: |
       }
     )
   }
+
+plugins:
+  - responseCache:
+      ttl: 30000
